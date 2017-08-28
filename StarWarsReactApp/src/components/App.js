@@ -117,7 +117,7 @@ componentDidMount(){
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
               </form>
-              <h1>{this.state.pilot}</h1>
+              <h1>{this.state.pilot} Skywalker</h1>
             </div>
           </div>
           <div className="row">
