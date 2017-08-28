@@ -4,8 +4,16 @@
 
 .card{
   margin: 5px;
+  height: 600px;
 }
+
+.innercard{
+  margin: 5px;
+}
+
 
 .form{
   text-align: center;
+  background-color: white;
+  border-radius: 5px
 }

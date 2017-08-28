@@ -37,8 +37,8 @@ handleNameChange(event){
 handleSubmit(event){
   event.preventDefault();
   this.setState({
-    pilot:this.state.value,
-    value:''
+    pilot: this.state.value,
+    value: ''
   })
 }
 
@@ -50,11 +50,11 @@ handleSubmit(event){
   // You will want to use this array when you set the state of 'vehicles'. You will need this data in your render.
   // Enter your code below:
 
-componentMounted(){
-  fetch('https://swapi.co/api/vehicles/').then((response)=>{
+componentDidMount(){
+  fetch('https://swapi.co/api/vehicles/').then((response) => {
     return response.json()
-  }).then((data)=>{
-    let vehicles=data.results;
+  }).then((data) => {
+    let vehicles = data.results;
     this.setState({vehicles:vehicles})
   })
 }
@@ -73,31 +73,32 @@ componentMounted(){
     Map over this variable to access the values needed to render.
     */
     let vehicleArray = this.state.vehicles;
-    let vehicles = vehicleArray.map((vehicles)=>{
+    let vehicles = vehicleArray.map((vehicles) => {
       return(
-      <div key = {vehicles.name} className="col-md-4">
-        <div className="card">
-          <div className="card-block">
-          <h4 className="card-title">Vehicle:{vehicles.name}</h4>
-          <h5 className="card-subtitle mb-2 text-muted">Model:{vehicles.model}</h5>
+        <div key = {vehicles.name} className = "col-md-4" >
           <div className="card">
             <div className="card-block">
-            <h5 className="card-subtitle mb-2 text-muted">Specs</h5>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Manufacturer: {vehicles.manufacturer}</li>
-              <li className="list-group-item">Class: {vehicles.vehicle_class}</li>
-              <li className="list-group-item">Passengers: {vehicles.passengers}</li>
-              <li className="list-group-item">Crew: {vehicles.crew}</li>
-              <li className="list-group-item">Length: {vehicles.length}</li>
-              <li className="list-group-item">Max Speed: {vehicles.max_atmosphering_speed}</li>
-              <li className="list-group-item">Cargo Capacity: {vehicles.cargo_capacity}</li>
-            </ul>
+              <h4 className="card-title">Vehicle: {vehicles.name}</h4>
+              <h5 className="card-subtitle mb-2 text-muted">Model: {vehicles.model}</h5>
+              <div className="innercard">
+                <div className="card-block">
+                  <h5 className="card-subtitle mb-2 text-muted">Specs</h5>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">Manufacturer: {vehicles.manufacturer}</li>
+                    <li className="list-group-item">Class: {vehicles.vehicle_class}</li>
+                    <li className="list-group-item">Passengers: {vehicles.passengers}</li>
+                    <li className="list-group-item">Crew: {vehicles.crew}</li>
+                    <li className="list-group-item">Length: {vehicles.length}</li>
+                    <li className="list-group-item">Max Speed: {vehicles.max_atmosphering_speed}</li>
+                    <li className="list-group-item">Cargo Capacity: {vehicles.cargo_capacity}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          </div>
         </div>
-      </div>
-    )})
+        )
+      })
     return(
       <div className="App">
         <main className="row">
@@ -107,7 +108,7 @@ componentMounted(){
             <hr className="my-4"/>
             <p className="lead">The Vehicles of Star Wars</p>
           </div>
-          <div className="card form">
+          <div className="form">
             <div className="card-block">
               <h2 className="card-title">What is your name, plot?</h2>
               <form onSubmit={this.handleSubmit}>
