@@ -110,7 +110,7 @@ componentDidMount(){
           </div>
           <div className="form">
             <div className="card-block">
-              <h2 className="card-title">What is your name, plot?</h2>
+              <h2 className="card-title">What is your name, pilot?</h2>
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                 <input className="form-control col-md-4 offset-md-4" id="pilotName" onChange={this.handleNameChange} name="name" type="text" value={this.state.value} placeholder="Enter your name"/>
